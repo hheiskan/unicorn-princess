@@ -18,4 +18,6 @@ Big thanks to [Shaun Spalding](https://www.youtube.com/c/ShaunSpalding) for real
 
 ## Screenshots
 
-!(/docs/img/titlescreen.png)
+![Title Screen](docs/img/titlescreen.png)
+![Gameplay](docs/img/gameplay.png)
+
