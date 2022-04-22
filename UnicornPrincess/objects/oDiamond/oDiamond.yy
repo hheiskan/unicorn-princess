@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sDiamond",
-    "path": "sprites/sDiamond/sDiamond.yy",
+    "name": "sCollectible",
+    "path": "sprites/sCollectible/sCollectible.yy",
   },
   "solid": false,
   "visible": true,

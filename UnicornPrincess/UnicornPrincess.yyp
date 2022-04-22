@@ -7,6 +7,7 @@
     {"id":{"name":"oLogo","path":"objects/oLogo/oLogo.yy",},"order":7,},
     {"id":{"name":"sDiamond","path":"sprites/sDiamond/sDiamond.yy",},"order":5,},
     {"id":{"name":"sAada","path":"sprites/sAada/sAada.yy",},"order":1,},
+    {"id":{"name":"sCollectible","path":"sprites/sCollectible/sCollectible.yy",},"order":14,},
     {"id":{"name":"sElena","path":"sprites/sElena/sElena.yy",},"order":6,},
     {"id":{"name":"sndGameplay","path":"sounds/sndGameplay/sndGameplay.yy",},"order":0,},
     {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},"order":3,},
