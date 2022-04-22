@@ -1,3 +1,4 @@
+var bbox_side;
 
 if (win_state) return;
 
@@ -11,14 +12,24 @@ if (gamepad_is_connected(0))
 	key_jump = gamepad_button_check_pressed(0, gp_face1);
 }
 
-
 var move = key_right - key_left;
 
 hsp = move * walksp;
 
 vsp = vsp + grv;
 
-var on_floor = place_meeting(x, y + 1, oWall);
+
+// Fractional Collisions / Pixel Perfect (https://pastebin.com/bzEK3sre)
+hsp_final = hsp + hsp_f;
+hsp_f = hsp_final - floor(abs(hsp_final))*sign(hsp_final);
+hsp_final -= hsp_f;
+
+vsp_final = vsp + vsp_f;
+vsp_f = vsp_final - floor(abs(vsp_final))*sign(vsp_final);
+vsp_final -= vsp_f;
+
+//var on_floor = place_meeting(x, y + 1, oWall);
+var on_floor = tilemap_get_at_pixel(collisionMap, x, bbox_bottom + 1) != 0;
 if (on_floor) jump_count = 0;
 
 if (place_meeting(x, y, oDiamond))
@@ -32,31 +43,33 @@ var jump = 0;
 if (on_floor || jump_count < 2) && (key_jump)
 {
 	vsp = -6;
+	vsp_final = -6;
+	vsp_f = 0;
 	jump_count++;
 	jump = 1;
 }
 
-if (place_meeting(x + hsp, y, oWall))
+if (hsp_final > 0) bbox_side = bbox_right; else bbox_side = bbox_left;
+if (tilemap_get_at_pixel(collisionMap, bbox_side + hsp_final, bbox_top) != 0) ||  (tilemap_get_at_pixel(collisionMap, bbox_side + hsp_final, bbox_bottom) != 0)
 {
-	while (!place_meeting(x + sign(hsp), y, oWall))
-	{
-		x = x + sign(hsp);
-	}
+	if (hsp_final > 0) x = x - (x mod 16) + 15 - (bbox_right - x);
+	else if (hsp_final < 0) x = x - (x mod 16) - (bbox_left - x);
+	hsp_final = 0;
 	hsp = 0;
 }
 
-x = x + hsp;
+x += hsp_final;
 
-if (place_meeting(x, y + vsp, oWall))
+if (vsp_final > 0) bbox_side = bbox_bottom; else bbox_side = bbox_top;
+if (tilemap_get_at_pixel(collisionMap, bbox_left, bbox_side + vsp_final) != 0) ||  (tilemap_get_at_pixel(collisionMap, bbox_right, bbox_side + vsp_final) != 0)
 {
-	while (!place_meeting(x, y + sign(vsp), oWall))
-	{
-		y = y + sign(vsp);
-	}
+	if (vsp_final > 0) y = y - (y mod 16) + 15 - (bbox_bottom - y);
+	else if (vsp_final < 0) y = y - (y mod 16) - (bbox_top - y);
+	vsp_final = 0;
 	vsp = 0;
 }
 
-y = y + vsp;
+y += vsp_final;
 
 // Animation
 if (jump)
@@ -68,12 +81,12 @@ if (!on_floor)
 {
 	sprite_index = sEmiliaAir;
 	image_speed = 0;
-	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
+	if (sign(vsp_final) > 0) image_index = 1; else image_index = 0;
 }
 else
 {
 	image_speed = 1;
-	if (hsp == 0)
+	if (hsp_final == 0)
 	{
 		sprite_index = sEmiliaIdle;	
 	}
@@ -84,7 +97,7 @@ else
 }
 
 // if sprites would face right I could remove that -1
-if (hsp != 0) image_xscale = sign(hsp) * -1;
+if (hsp_final != 0) image_xscale = sign(hsp_final) * -1;
 
 if (instance_number(oDiamond) = 0)
 {
