@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":2,},
+    {"id":{"name":"sTiles","path":"sprites/sTiles/sTiles.yy",},"order":13,},
     {"id":{"name":"Level2","path":"rooms/Level2/Level2.yy",},"order":4,},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":3,},
     {"id":{"name":"oLogo","path":"objects/oLogo/oLogo.yy",},"order":7,},
@@ -15,6 +16,7 @@
     {"id":{"name":"sEmiliaRunning","path":"sprites/sEmiliaRunning/sEmiliaRunning.yy",},"order":0,},
     {"id":{"name":"oAada","path":"objects/oAada/oAada.yy",},"order":1,},
     {"id":{"name":"sndJump","path":"sounds/sndJump/sndJump.yy",},"order":4,},
+    {"id":{"name":"tTiles","path":"tilesets/tTiles/tTiles.yy",},"order":1,},
     {"id":{"name":"sEmiliaAir","path":"sprites/sEmiliaAir/sEmiliaAir.yy",},"order":4,},
     {"id":{"name":"sLogo","path":"sprites/sLogo/sLogo.yy",},"order":10,},
     {"id":{"name":"oDiamond","path":"objects/oDiamond/oDiamond.yy",},"order":4,},
@@ -32,7 +34,6 @@
     {"id":{"name":"sndTitle","path":"sounds/sndTitle/sndTitle.yy",},"order":1,},
     {"id":{"name":"sGreatWork","path":"sprites/sGreatWork/sGreatWork.yy",},"order":11,},
     {"id":{"name":"oGreatWork","path":"objects/oGreatWork/oGreatWork.yy",},"order":8,},
-    {"id":{"name":"Sprite8","path":"sprites/Sprite8/Sprite8.yy",},"order":7,},
     {"id":{"name":"sDust","path":"sprites/sDust/sDust.yy",},"order":8,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
