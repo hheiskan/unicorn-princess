@@ -109,3 +109,12 @@ if (instance_number(oDiamond) = 0)
 	audio_play_sound(sndDiamond, 1, 0);
 	audio_play_sound(sndWin, 1, 0)
 }
+
+if (layer_exists("bStars"))
+{
+	var cam = view_get_camera(0);
+	var cam_x = camera_get_view_x(cam);
+	var cam_y = camera_get_view_y(cam); 
+	layer_x("bStars", cam_x / 2);
+	layer_y("bStars", cam_y / 2);
+}

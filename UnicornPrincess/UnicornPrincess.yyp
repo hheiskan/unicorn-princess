@@ -21,6 +21,7 @@
     {"id":{"name":"sEmiliaAir","path":"sprites/sEmiliaAir/sEmiliaAir.yy",},"order":4,},
     {"id":{"name":"sLogo","path":"sprites/sLogo/sLogo.yy",},"order":10,},
     {"id":{"name":"oDiamond","path":"objects/oDiamond/oDiamond.yy",},"order":4,},
+    {"id":{"name":"sStars","path":"sprites/sStars/sStars.yy",},"order":15,},
     {"id":{"name":"sCollision","path":"sprites/sCollision/sCollision.yy",},"order":12,},
     {"id":{"name":"Level1","path":"rooms/Level1/Level1.yy",},"order":3,},
     {"id":{"name":"sEmiliaIdle","path":"sprites/sEmiliaIdle/sEmiliaIdle.yy",},"order":2,},
